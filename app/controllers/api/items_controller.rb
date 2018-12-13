@@ -20,6 +20,7 @@ class Api::ItemsController < ApplicationController
   end
 
   def update     
+    puts "in update"
     if @item.update(item_params)
       render json: @item , status: 200
     else
@@ -41,7 +42,7 @@ class Api::ItemsController < ApplicationController
     end 
 
     def item_params
-      params.require(:item).permit(:name, :description, :price, :image_url)
+      params.require(:item).permit(:name, :description, :price, :image_url, :likes_count)
     end 
 
    
